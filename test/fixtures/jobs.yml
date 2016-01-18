@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_name: MyString
+  containers_needed: 1
+  user_id: 1
+  boat_id: 1
+  cost: 9.99
+
+two:
+  job_name: MyString
+  containers_needed: 1
+  user_id: 1
+  boat_id: 1
+  cost: 9.99
