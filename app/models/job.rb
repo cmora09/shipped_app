@@ -1,9 +1,9 @@
 class Job < ActiveRecord::Base
-	belongs_to :boat dependent: :destroy
-	validates :job_name, presence: true, length {maximum: 75}
+	belongs_to :boat
+	validates :job_name, presence: true, length: {maximum: 75}, unique
 	validates :containers_needed presence: true
 	validates :cost, presence: true
-	validates_numericality_of :cost, :greater_than_or_equal_to {minimum: 1000}
+	validates_numericality_of :cost, :greater_than_or_equal_to => 1000
 	validates :origin, presence: true
 	validates :destination, presence: true
 	validates :cargo, presence: true

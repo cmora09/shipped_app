@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+h1, h2, h3{
+	font-family: 'Orbitron', sans-serif;
+}
+
+a, p, ul{
+	font-family: 'Karla', sans-serif;
+}
+
+form{
+	font-family: 'Karla', sans-serif;
+}

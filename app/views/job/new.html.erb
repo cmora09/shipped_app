@@ -1,2 +1,18 @@
 <h1>Job#new</h1>
 <p>Find me in app/views/job/new.html.erb</p>
+<h1>Post a New Job</h1>
+<!-- Comments#new -->
+
+<p>
+	<%= form_for [@boat, @job] do |f| %>
+		<%= f.label :Job_Name %>
+		<%= f.text_area :job_name %>
+		<%= f.label :Containers_required %>
+		<%= f.text_area :containers_needed %>
+		<%= f.label :Origin %>
+		<%= f.select :origin, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>%>
+		<%= f.label :Destination %>
+		<%= f.select :destination, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>
+		<%= f.submit %>
+	<% end %>
+</p>

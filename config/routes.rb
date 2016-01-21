@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  get '/login', to:  'sessions#new' #login is in sessions new erb
+  post '/login', to: 'sessions#create' #creates sessions
+  get '/logout', to: 'sessions#destroy' #ends session
+
   resources :users
-  resources :boats do 
-    resources :jobs
+  resources :boats do
+    resource :jobs
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

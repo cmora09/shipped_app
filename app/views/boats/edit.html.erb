@@ -1,2 +1,13 @@
 <h1>Boats#edit</h1>
 <p>Find me in app/views/boats/edit.html.erb</p>
+
+<%= form_for(@boat) do |f| %>
+	<%= f.label :Boat_name %>
+	<%= f.text_field :boat_name %>
+	<%= f.label :Container_capacity %>
+	<%= f.text_field :container_cap %>
+	<%= f.label :Current_location %>
+	<%= f.select :location, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"]%>
+	<%= f.submit "Update Boat Details" %>
+<% end %>
+<%= link_to "Remove Boat from Fleet", boat_path(@boat.id), method: :delete %>
