@@ -1,18 +1,21 @@
-<h1>Job#new</h1>
-<p>Find me in app/views/job/new.html.erb</p>
-<h1>Post a New Job</h1>
-<!-- Comments#new -->
-
+<h1>Jobs#edit</h1>
+<p>Find me in app/views/jobs/edit.html.erb</p>
 <p>
 	<%= form_for [@boat, @job] do |f| %>
 		<%= f.label :Job_Name %>
-		<%= f.text_area :job_name %>
+		<%= f.text_field :job_name %>
 		<%= f.label :Containers_required %>
 		<%= f.text_area :containers_needed %>
+		<%= f.label :Cost_of_job %>
+		<%= f.text_field :cost %>
 		<%= f.label :Origin %>
 		<%= f.select :origin, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>%>
 		<%= f.label :Destination %>
 		<%= f.select :destination, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>
+		<%= f.label :Cargo_description %>
+		<%= f.text_area :cargo %>
 		<%= f.submit %>
 	<% end %>
-</p>
+
+	<%= link_to "Delete Job from this boat", boat_job_path(@boat, @job), method: :delete %>
+ </p>

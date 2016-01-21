@@ -1,0 +1,19 @@
+<h1>Jobs#new</h1>
+<p>Find me in app/views/jobs/new.html.erb</p>
+<p>
+	<%= form_for [@boat, @job] do |f| %>
+		<%= f.label :Job_Name %>
+		<%= f.text_field :job_name %>
+		<%= f.label :Containers_required %>
+		<%= f.text_field :containers_needed %>
+		<%= f.label :Cost_of_Job %>
+		<%= f.text_field :cost %>
+		<%= f.label :Origin %>
+		<%= f.select :origin, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>
+		<%= f.label :Destination %>
+		<%= f.select :destination, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>
+			<%= f.label :Cargo_description %>
+		<%= f.text_area :cargo %>
+		<%= f.submit %>
+	<% end %>
+</p>
