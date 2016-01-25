@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :boats, dependent: :destroy
 	has_many :follows 
-	has_many :fs, through: :follows, source: :boat
+	has_many :followed, through: :follows, source: :boat
 	has_many :jobs
 	has_secure_password
 	validates_uniqueness_of :username, case_sensitive: false

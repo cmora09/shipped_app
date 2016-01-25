@@ -1,4 +1,4 @@
-<% if @current_user.follows(@boat) %>
+<% if @current_user.follows.find_by(id: @boat.id) %>
 		<%= form_for(@current_user.follows.find_by(boat_id: @boat.id), html: {method: :delete}) do |f| %>
 			<%= f.submit 'Unfollow' %>
 		<% end %>

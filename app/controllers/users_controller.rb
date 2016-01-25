@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   	@user = current_user
     @boats = @user.boats.all
     @allboats = Boat.all
-    # @fboat = Boat.find(params[:id])
-  	# @boats = @user.boats
   	if !current_user
   		redirect_to login_path
   	end

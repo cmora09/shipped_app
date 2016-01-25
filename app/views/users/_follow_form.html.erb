@@ -1,12 +1,10 @@
-<div id="follow_form">
-	<% if current_user.follows(@allboats) %>
-		<%= form_for(current_user.follows.find_by(boat_id: @allboats.id), html: {method: :delete}) do |f| %>
+<% if @user.follows.find_by(boat_id: all.id) %>
+		<%= form_for(@user.follows.find_by(boat_id: all.id), html: {method: :delete}) do |f| %>
 			<%= f.submit 'Unfollow' %>
 		<% end %>
 	<% else %>
-		<%= form_for(current_user.follows.build) do |f| %>
-				<%= hidden_field_tag :boat_id, @allboats.id %>
+		<%= form_for(@user.follows.build) do |f| %>
+				<%= hidden_field_tag :boat_id, all.id %>
 				<%= f.submit "Follow" %>
 	<% end %>
-	<% end %>
-</div>
+<% end %>

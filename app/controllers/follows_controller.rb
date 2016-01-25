@@ -3,9 +3,9 @@ class FollowsController < ApplicationController
 	end
 
 	def create
-		@boat = Boat.find(params[:id])
+		@boat = Boat.find(params[:boat_id])
+		# @newfollow = Follow.create(:boat_id)
 		current_user.follows.build(@boat)
-		# @follow = Follow.create(:ship_id)
 		redirect_to users_path
 	end
 
