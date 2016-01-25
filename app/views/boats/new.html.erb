@@ -1,12 +1,14 @@
 <h1>Boats#new</h1>
 <p>Find me in app/views/boats/new.html.erb</p>
 <h2>Add a boat to your fleet, Captain.</h1>
-	<%= form_for(@boat) do |f| %>
+	<%= form_for @boat, :html => {:multipart => true} do |f| %>
 	<%= f.label :Boat_Name %>
 	<%= f.text_field :boat_name %>
 	<%= f.label :Container_Capacity %>
 	<%= f.text_field :container_cap %>
 	<%= f.label :Current_location %>
 	<%= f.select :location, ["New York City, USA", "Rio De Janeiro, Brazil", "Tokyo, Japan", "Los Angeles, USA", "London, England", "Mumbai, India", "Barcelona, Spain", "Dubai, UAE", "Hong Kong, China", "St.Petersburg, Russia"], :class => "form" %>
+	<%= f.label :Ship_avatar %>
+	<%= f.file_field :avatar %>
 	<%= f.submit %>
 <% end %> 

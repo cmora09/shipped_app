@@ -13,14 +13,37 @@
  *= require_tree .
  *= require_self
  */
+html,body{
+	background-color: #FADB98;
+	color:#4B4B6E;
+}
 h1, h2, h3, h4{
 	font-family: 'Orbitron', sans-serif;
 }
 
 a, p, ul{
 	font-family: 'Karla', sans-serif;
+
+}
+
+a{
+	color:#0061C2;
+	text-decoration: none;
+
+}
+
+a:hover{
+	text-decoration: underline;
 }
 
 form{
 	font-family: 'Karla', sans-serif;
+}
+
+#userboats{
+	float: left;
+}
+
+#allboats{
+	float:right;
 }

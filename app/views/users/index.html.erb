@@ -1,11 +1,38 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
 <div id="userheader">
-	<%= link_to "Profile", user_path(current_user) %>
 	<%= link_to "Settings", edit_user_path(current_user) %>
 	<%= link_to "Boats", boats_path(current_user) %>
 	<a href="/logout">Logout</a>
 </div>
 
 <h1> Welcome to Zorg Logisitics, <%= current_user.username %>!</h1>
+
+<div>
+
+</div>
+<div id="userboats">
+		<ul>
+			<% @boats.each do |boat| %>
+			<h2><%= boat.boat_name %> </h2>
+			<p><%= image_tag boat.avatar.url(:medium) %></p>
+			<li>Container Capacity: <%= boat.container_cap %></li>
+			<li>Current Location: <%= boat.location %></li>
+		</ul>
+		<ul>
+			<h4>Pending Jobs for <%= boat.boat_name %> :
+			 <% boat.jobs.each do |job| %></h4>
+				<li><%= job.job_name %> <%= link_to "Edit Job Details", edit_boat_job_path(boat.id, job.id) %></li>
+					<% end %>
+		</ul>
+		<p><%= link_to "Edit Boat Details", edit_boat_path(boat.id) %>
+		<%= link_to "Assign New Job", new_boat_job_path(boat.id) %>	
+		<%= link_to "Follow Boat", user_path(current_user) %>
+		</p>
+		<% end %>
+</div>
+
+<div id="allboats">
+	<% @allboats.each do |all| %>
+		<h2><%= all.boat_name %> </h2>
+		<p><%= image_tag all.avatar.url(:medium) %></p>
+	<% end %>
+</div>

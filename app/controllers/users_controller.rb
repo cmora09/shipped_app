@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
   	@user = current_user
+    @boats = @user.boats.all
+    @allboats = Boat.all
+    # @fboat = Boat.find(params[:id])
   	# @boats = @user.boats
   	if !current_user
   		redirect_to login_path
@@ -17,11 +20,17 @@ class UsersController < ApplicationController
   	if @user.save
   		flash[:notice] = "Your account has been created successfully."
  		redirect_to root_path
- 	else
- 		flash[:alert] = "There was a problem creating your account."
- 		redirect_to root_path
- 	end
+ 	  else
+ 		 flash[:alert] = "There was a problem creating your account."
+ 		 redirect_to root_path
+ 	  end
   end
+
+  def show
+    @current_user = current_user
+    @boat = Boat.find(params[:id])
+  end
+
 
   def edit
   	@user = User.find(params[:id])
@@ -53,6 +62,6 @@ class UsersController < ApplicationController
   private
   #only permits the following params to be introduced by user.
   def user_params
-  	params.require(:user).permit(:fname, :lname, :email, :username, :password)
+  	params.require(:user).permit(:fname, :lname, :email, :username, :password, :avatar)
   end
 end

@@ -8,5 +8,5 @@ class Job < ActiveRecord::Base
 	validates :destination, presence: true
 	validates :cargo, presence: true
 	validates :cargo, length: {minimum: 50}
-	# validates_presence_of :job_name, :containers_needed, :cost, :origin, :destination, :cargo, on: :create
+	
 end

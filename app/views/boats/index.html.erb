@@ -1,11 +1,12 @@
-<h1>Boats#index</h1>
-<p>Find me in app/views/boats/index.html.erb</p>
 <%= link_to "Create a new boat", new_boat_path(current_user) %>
 
-<% @boats.each do |boat| %>
-	<div id="boats">
+
+	<div id="userboats">
 		<ul>
-			<h2><%= boat.boat_name %></h2>
+			<% @boats.each do |boat| %>
+			<h2><%= boat.boat_name %>  </h2>
+
+			<p><%= image_tag boat.avatar.url(:medium) %></p>
 			<li>Container Capacity: <%= boat.container_cap %></li>
 			<li>Current Location: <%= boat.location %></li>
 		</ul>
@@ -14,8 +15,10 @@
 			 <% boat.jobs.each do |job| %></h4>
 				<li><%= job.job_name %> <%= link_to "Edit Job Details", edit_boat_job_path(boat.id, job.id) %></li>
 					<% end %>
+				
 		</ul>
-		<p><%= link_to "Edit Boat Details", edit_boat_path(boat.id) %>
-		<%= link_to "Assign New Job", new_boat_job_path(boat.id) %>	</p>
+		<%= link_to "Assign New Job", new_boat_job_path(boat.id) %>	
 	</div>
+	
 <% end %>
+
